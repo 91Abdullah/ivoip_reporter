@@ -1,0 +1,27 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Cabin:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import 'navbar-fixed-side';
+
+.hr-horizontal { 
+    border-left: 1px dashed #ccc;      
+}
+
+sup {
+    top: -0.4em;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.form-inline {
+    display: inline;
+}
