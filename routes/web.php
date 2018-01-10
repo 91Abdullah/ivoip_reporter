@@ -32,6 +32,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cdr_report', 'ReportController@getCdr')->name('cdr_report');
     Route::post('/cdr_report', 'ReportController@getCdr')->name('fetch_cdr');
 
+    Route::get('/cdr_report_new', 'ReportController@getCdrNew')->name('cdr_report_new');
+    Route::post('/cdr_report_new', 'ReportController@getCdrNew')->name('fetch_cdr_new');
+
     Route::get('/ready_report', 'ReportController@getReadyReport')->name('ready_report');
     Route::post('/ready_report', 'ReportController@getReadyReport')->name('fetch_ready');
 

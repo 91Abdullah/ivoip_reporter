@@ -93,7 +93,6 @@
             <div class="content">
                 <div class="title m-b-md">
                     <img src="{{ asset('storage/ipt-logo.png') }}" alt="IPT Logo" class="img-responsive"> <br />
-                    <span style="color: #3CAB35; font-weight: bold">i</span><span style="color: #575757; font-weight: bold">PT</span> <span style="color: #3CAB35">Smart Solutions</span> <br />
                     iVoIP Reporter
                 </div>
 

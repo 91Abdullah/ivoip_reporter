@@ -49,6 +49,7 @@
                                         <li class="{{ active('home') }}"><a href="{{ url('/home') }}">Home</a></li>
                                         <li class="{{ active('users') }}"><a href="{{ route('users') }}">Users</a></li>
                                         <li class="{{ active('cdr_report') }}"><a href="{{ route('cdr_report') }}">Call Detail Records</a></li>
+                                        <li class="{{ active('cdr_report_new') }}"><a href="{{ route('cdr_report_new') }}">Call Detail Records #2</a></li>
                                         <li class="{{ active('ready_report') }}"><a href="{{ route('ready_report') }}">Ready/Not Ready Report</a></li>
                                         <li class="{{ active('consolidated_1_report') }}"><a href="{{ route('consolidated_1_report') }}">Consolidated Report #1</a></li>
                                         <li class="{{ active('consolidated_2_report') }}"><a href="{{ route('consolidated_2_report') }}">Consolidated Report #2</a></li>
@@ -97,7 +98,7 @@
                         </div>
                     </div>
                     <footer>
-                        <p class="text-center">Made with <i class="fa fa-heart" style="color:red;"></i> by Team IPT Solutions <strong>Abdullah Basit</strong> & <strong>Rao Israr</strong></p>
+                        <p class="text-center">Made with <i class="fa fa-heart" style="color:red;"></i> by <strong>Abdullah Basit</strong></p>
                     </footer>
                 </div>
             </div>

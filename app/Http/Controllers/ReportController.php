@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\CallDetailRecord;
 use App\Cdr;
-use App\ReadyNotReady;
 use App\ConsolidatedReport1;
 use App\ConsolidatedReport2;
-use Carbon\Carbon;
 use App\QueueLog;
+use App\ReadyNotReady;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
@@ -23,6 +24,22 @@ class ReportController extends Controller
             return view('_cdr', compact('cdrs')) ;
         } else {
             return view('cdr');
+        }
+    }
+
+    public function getCdrNew(Request $request)
+    {
+    	if($request->isMethod('post')) {
+            $range = explode("-", $request->daterange);
+            $range_from = Carbon::parse(trim($range[0]));
+            $range_to = Carbon::parse(trim($range[1]));
+
+            //return dd(CallDetailRecord::first()->start);
+
+            $cdrs = CallDetailRecord::whereBetween('start', [$range_from, $range_to])->latest('start')->get();
+            return view('_cdr_new', compact('cdrs')) ;
+        } else {
+            return view('cdr_new');
         }
     }
 
