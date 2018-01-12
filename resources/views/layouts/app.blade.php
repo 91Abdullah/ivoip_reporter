@@ -14,6 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.offcanvas.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+    <link rel="shortcut icon" href="{{ asset('storage/favicon.ico') }}">
 
     @stack('styles')
 </head>
@@ -47,7 +48,9 @@
                                 @if(!Auth::guest()) 
                                     <ul class="nav navbar-nav">
                                         <li class="{{ active('home') }}"><a href="{{ url('/home') }}">Home</a></li>
+                                        <li class="{{ active('dashboard') }}"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                         <li class="{{ active('users') }}"><a href="{{ route('users') }}">Users</a></li>
+                                        <li class="{{ active('agents') }}"><a href="{{ route('agents') }}">Agents</a></li>
                                         <li class="{{ active('cdr_report') }}"><a href="{{ route('cdr_report') }}">Call Detail Records</a></li>
                                         <li class="{{ active('cdr_report_new') }}"><a href="{{ route('cdr_report_new') }}">Call Detail Records #2</a></li>
                                         <li class="{{ active('ready_report') }}"><a href="{{ route('ready_report') }}">Ready/Not Ready Report</a></li>
@@ -56,6 +59,7 @@
                                         <li class="{{ active('get_abondaned_report') }}"><a href="{{ route('get_abondaned_report') }}">Abondaned Call Report</a></li>
                                         <li class="{{ active('get_enterqueue_report') }}"><a href="{{ route('get_enterqueue_report') }}">Enter Queue Report</a></li>
                                         <li class="{{ active('get_agentconnect_report') }}"><a href="{{ route('get_agentconnect_report') }}">Agent Connect Report</a></li>
+                                        <li class="{{ active('settings') }}"><a href="{{ route('settings') }}">Settings</a></li>
                                     </ul>
                                 @endif
 

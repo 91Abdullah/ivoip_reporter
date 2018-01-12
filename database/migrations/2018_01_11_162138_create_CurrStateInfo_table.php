@@ -17,13 +17,13 @@ class CreateCurrStateInfoTable extends Migration {
 			$table->float('ID', 53, 0)->primary('PK_CurrStateInfo');
 			$table->string('Name', 50);
 			$table->string('Extension', 20);
-			$table->string('LoginTime', 30);
-			$table->string('LogoutTime', 30);
-			$table->boolean('IsLogin');
-			$table->boolean('IsReady');
-			$table->boolean('OnCall');
-			$table->boolean('Idle');
-			$table->boolean('ACW');
+			$table->string('LoginTime', 30)->default(" ");
+			$table->string('LogoutTime', 30)->default(" ");
+			$table->boolean('IsLogin')->default(false);
+			$table->boolean('IsReady')->default(false);
+			$table->boolean('OnCall')->default(false);
+			$table->boolean('Idle')->default(false);
+			$table->boolean('ACW')->default(false);
 		});
 	}
 

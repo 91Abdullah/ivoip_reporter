@@ -17,6 +17,10 @@ class CreateAsteriskTableTable extends Migration {
 			$table->integer('ID', true);
 			$table->string('ProxyIP', 20);
 			$table->integer('Port');
+			$table->string('ManagerUsername')->default('asterisk');
+			$table->string('ManagerPassword')->default('asterisk');
+			$table->integer('ManagerPort')->default(5038);
+			$table->string('Queue')->default('100');
 		});
 	}
 

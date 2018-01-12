@@ -19,10 +19,34 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::prefix('dashboard')->group(function() {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/data', 'DashboardController@getData')->name('dashboard.data');
+});
+
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/users', 'UserController@index')->name('users');
-    Route::get('/users/create', 'UserController@create')->name('form.user');
-    Route::post('/users/create', 'UserController@create')->name('create.user');
+
+    Route::prefix('agents')->group(function() {
+        Route::get('/', 'AgentController@index')->name('agents');
+        Route::group(['middleware' => ['check_admin']], function() {
+            Route::get('/create', 'AgentController@create')->name('create.agent');
+            Route::post('/create', 'AgentController@create')->name('post.agent');
+            Route::delete('/delete/{agent}', 'AgentController@delete')->name('delete.agent');
+            Route::get('/update/{agent}', 'AgentController@update')->name('show.update');
+            Route::patch('/update/{agent}', 'AgentController@update')->name('update.agent');
+        });
+    });
+
+    Route::group(['middleware' => ['check_admin']], function() {
+        Route::get('/users', 'UserController@index')->name('users');
+        Route::get('/users/create', 'UserController@create')->name('form.user');
+        Route::post('/users/create', 'UserController@create')->name('create.user');
+    });
+
+    Route::group(['middleware' => ['check_admin']], function() {
+        Route::get('/settings', 'SettingController@index')->name('settings');
+        Route::patch('/settings', 'SettingController@update')->name('post.settings');
+    });
 
     Route::get('/users/update/{user}', 'UserController@update')->name('edit.user');
     Route::patch('/users/create/{user}', 'UserController@update')->name('update.user');
