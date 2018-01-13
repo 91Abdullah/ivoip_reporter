@@ -31,9 +31,13 @@ class DashboardController extends Controller
 		];
     	$client = new ClientImpl($options);
     	$client->open();
-    	$response = $client->send(new QueueStatusAction('100'));
+    	$response_params = $client->send(new QueueStatusAction('100'));
+    	$response_summary = $client->send(new QueueSummaryAction('100'));
     	$client->close();
-    	return response()->json($response->getEvents()[0]->getKeys());
+    	return response()->json([
+    		'QueueParams' => $response_params->getEvents()[0]->getKeys(),
+    		'QueueSummary' => $response_summary->getEvents()[0]->getKeys()
+    	]);
     }
 
 

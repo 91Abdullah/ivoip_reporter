@@ -25,3 +25,9 @@ sup {
 .form-inline {
     display: inline;
 }
+
+@media(max-width: xs) {
+	.text-xs-center {
+    	text-align: center;
+  	} 
+}
