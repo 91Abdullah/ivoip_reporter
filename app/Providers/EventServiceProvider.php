@@ -16,6 +16,14 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+
+        'App\Events\AgentCreated' => [
+            'App\Listeners\LogRegisteredUser',
+        ],
+
+        'App\Events\AgentDeleted' => [
+            'App\Listeners\LogAgentDeleted',
+        ],
     ];
 
     /**

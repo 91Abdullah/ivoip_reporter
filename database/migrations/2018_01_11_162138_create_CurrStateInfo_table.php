@@ -14,7 +14,7 @@ class CreateCurrStateInfoTable extends Migration {
 	{
 		Schema::create('CurrStateInfo', function(Blueprint $table)
 		{
-			$table->float('ID', 53, 0)->primary('PK_CurrStateInfo');
+			$table->increments('ID');
 			$table->string('Name', 50);
 			$table->string('Extension', 20);
 			$table->string('LoginTime', 30)->default(" ");

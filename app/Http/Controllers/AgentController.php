@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Agent;
+use App\Events\AgentCreated;
+use App\Events\AgentDeleted;
+use Illuminate\Http\Request;
 
 class AgentController extends Controller
 {
@@ -26,6 +28,7 @@ class AgentController extends Controller
     		]);
 
     		$agent = Agent::create($request->all());
+            event(new AgentCreated($agent));
 
     		return redirect()->route('agents');
     	} else {
@@ -35,6 +38,8 @@ class AgentController extends Controller
 
     public function delete(Agent $agent)
     {
+        event(new AgentDeleted($agent));
+        
     	$agent->delete();
 
     	session()->flash('success', 'Agent has been deleted.');

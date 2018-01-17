@@ -9,5 +9,7 @@ class CurrentStateInfo extends Model
     protected $table = 'CurrStateInfo';
     public $primaryKey = 'ID';
 
-    protected $fillable = ['Name', 'Extension'];
+    public $timestamps = false;
+
+    protected $fillable = ['Name', 'Extension', 'ACW'];
 }

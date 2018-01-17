@@ -280,12 +280,12 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-lg-6 col-xs-12">
+                                        <div class="col-lg-12 col-xs-12">
                                             <div id="myDiv"></div>
                                         </div>
-                                        <div class="col-lg-6 col-xs-12">
+                                        {{-- <div class="col-lg-6 col-xs-12">
                                             <div id="myDiv2"></div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -310,9 +310,9 @@
         let route = '{!! route('dashboard.data') !!}';
         let historyServiceLvl = new Array(10);
         
-        //setInterval(loadDashboard, 3000);
+        // setInterval(loadDashboard, 5000);
 
-        loadDashboard();
+        // loadDashboard();
 
         function loadDashboard() {
             $.ajax({
@@ -325,7 +325,7 @@
                 success: function(response) {
                     console.log(response);
                     $("#queue").text(response.QueueParams.queue);
-                    $("#total-calls").text(response.QueueParams.calls);
+                    $("#total-calls").text(parseInt(response.QueueParams.abandoned) + parseInt(response.QueueParams.completed));
                     $("#abandoned-calls").text(response.QueueParams.abandoned);
                     $("#completed-calls").text(response.QueueParams.completed);
                     $("#avg-holdtime").text(response.QueueParams.holdtime);
@@ -337,15 +337,21 @@
 
                     $("#loggedin").text(response.QueueSummary.loggedin);
                     $("#agents-available").text(response.QueueSummary.available);
-                    $("#agents-unavailable").text(response.QueueSummary.loggedin - response.QueueSummary.available);
+                    $("#unavailable-agents").text(response.QueueSummary.loggedin - response.QueueSummary.available);
                     $("#callers-waiting").text(response.QueueSummary.callers);
 
                     historyServiceLvl[Date.now()] = response.QueueParams.servicelevelperf;
 
                     let data = [{
                         x: ['Service Level'],
-                        y: [response.QueueParams.servicelevelperf],
+                        y: [response.QueueParams.servicelevelperf/100],
                         type: 'bar',
+                        marker: {
+                            color: '#C8A2C8',
+                            line: {
+                                width: 2.5
+                            }
+                        }
                     }];
 
                     let layout = {
@@ -356,18 +362,24 @@
                         }
                     }
 
-                    let historyData = [{
-                        x: [Object.keys(historyServiceLvl)],
-                        y: [historyServiceLvl],
-                        type: 'scatter'
-                    }];
+                    // let historyData = [{
+                    //     x: [Object.keys(historyServiceLvl)],
+                    //     y: [historyServiceLvl],
+                    //     type: 'scatter'
+                    // }];
 
-                    let historyLayout = {
-                        showlegend: false
-                    }
+                    // let historyLayout = {
+                    //     showlegend: false,
+                    //     xaxis: {
+                    //         tickformat: ',.0%',
+                    //         range: [0,1]
+                    //     }
+                    // }
 
                     Plotly.newPlot('myDiv', data, layout, {staticPlot: true});
-                    Plotly.newPlot('myDiv2', historyData, historyLayout, {staticPlot: true});
+                    // Plotly.newPlot('myDiv2', historyData, historyLayout, {staticPlot: true});
+
+                    // console.log(historyData);
 
                     $.notify("Dashboard Update", "success");
                 },
