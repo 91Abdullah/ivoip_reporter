@@ -280,7 +280,7 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-lg-12 col-xs-12">
+                                        <div class="col-lg-6 col-xs-12 col-lg-offset-3">
                                             <div id="myDiv"></div>
                                         </div>
                                         {{-- <div class="col-lg-6 col-xs-12">
@@ -309,10 +309,18 @@
     <script type="text/javascript">
         let route = '{!! route('dashboard.data') !!}';
         let historyServiceLvl = new Array(10);
+        let color = '#C8A2C8';
+        let defaultColor = '#72CAAF';
+        let warningColor = '#FF9800';
+        let dangerColor = '#FF0000';
         
-        // setInterval(loadDashboard, 5000);
+        setInterval(loadDashboard, 5000);
 
         // loadDashboard();
+
+        window.onresize = function() {
+            Plotly.Plots.resize('myDiv');
+        };
 
         function loadDashboard() {
             $.ajax({
@@ -323,7 +331,7 @@
                 },
                 dataType: 'JSON',
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                     $("#queue").text(response.QueueParams.queue);
                     $("#total-calls").text(parseInt(response.QueueParams.abandoned) + parseInt(response.QueueParams.completed));
                     $("#abandoned-calls").text(response.QueueParams.abandoned);
@@ -340,17 +348,30 @@
                     $("#unavailable-agents").text(response.QueueSummary.loggedin - response.QueueSummary.available);
                     $("#callers-waiting").text(response.QueueSummary.callers);
 
-                    historyServiceLvl[Date.now()] = response.QueueParams.servicelevelperf;
+                    //historyServiceLvl[Date.now()] = response.QueueParams.servicelevelperf;
+
+                    // response.QueueParams.servicelevelperf = "39";
+
+                    if(parseInt(response.QueueParams.servicelevelperf) < 60 && 
+                        response.QueueParams.servicelevelperf > 40) {
+                        color = warningColor;
+                        $("#service-lvl").css({'color': '#fff', 'background': warningColor, 'padding':'0 5px'});
+                    } else if(parseInt(response.QueueParams.servicelevelperf) < 40) {
+                        color = dangerColor;
+                        $("#service-lvl").css({'color': '#fff', 'background': dangerColor, 'padding':'0 5px'});
+                    } else {
+                        color = defaultColor;
+                    }
 
                     let data = [{
                         x: ['Service Level'],
                         y: [response.QueueParams.servicelevelperf/100],
                         type: 'bar',
                         marker: {
-                            color: '#C8A2C8',
+                            color: color,
                             line: {
                                 width: 2.5
-                            }
+                            }       
                         }
                     }];
 
@@ -359,6 +380,10 @@
                         yaxis: {
                             tickformat: ',.0%',
                             range: [0,1]
+                        },
+                        title: "Service Level",
+                        font: {
+                            size: 16
                         }
                     }
 
