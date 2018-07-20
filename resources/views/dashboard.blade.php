@@ -34,7 +34,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/queue.png">
+                                                    <img src="{{ asset("storage/queue.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -54,7 +54,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/phone.png">
+                                                    <img src="{{ asset("storage/phone.png") }}") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -74,7 +74,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/missed-call.png">
+                                                    <img src="{{ asset("storage/missed-call.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -94,7 +94,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                   <img src="https://png.icons8.com/dusk/64/000000/checkmark.png"> 
+                                                   <img src="{{ asset("storage/checkmark.png") }}"> 
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -117,7 +117,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/pause.png">
+                                                    <img src="{{ asset("storage/pause.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -137,7 +137,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/online-support.png">
+                                                    <img src="{{ asset("storage/online-support.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -157,7 +157,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/medium-connection.png">
+                                                    <img src="{{ asset("storage/medium-connection.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -177,7 +177,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                   <img src="https://png.icons8.com/dusk/64/000000/medium-connection.png">
+                                                   <img src="{{ asset("storage/medium-connection.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -200,7 +200,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/user.png">
+                                                    <img src="{{ asset("storage/user.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -220,7 +220,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/checked-user-male.png">
+                                                    <img src="{{ asset("storage/checked-user-male.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -240,7 +240,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                    <img src="https://png.icons8.com/dusk/64/000000/user-engagement-male.png">
+                                                    <img src="{{ asset("storage/user-engagement-male.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
@@ -260,7 +260,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                   <img src="https://png.icons8.com/color/64/000000/waiting-room.png">
+                                                   <img src="https://png.icons8.com/color/64/000000/waiting-room.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
