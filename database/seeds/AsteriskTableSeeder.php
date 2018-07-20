@@ -11,7 +11,7 @@ class AsteriskTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('AsteriskTableSeeder')->insert([
+        DB::table('AsteriskTable')->insert([
         	'ProxyIP' => '127.0.0.1',
         	'Post' => 5060,
         	'ManagerUsername' => 'ivoip-admin',
