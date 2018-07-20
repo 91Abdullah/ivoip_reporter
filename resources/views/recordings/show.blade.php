@@ -36,7 +36,7 @@
                         <td>{{ $recording->billsec }}</td>                    
                         <td>{{ $recording->disposition }}</td>   
                         <td>
-                            <a data-file="{{ $recording->recordingfile }}" data-toggle="modal" data-target="#myModal" href="#" title="Play" class="btn btn-primary btn-xs"><i class="fa fa-play"></i></a>
+                            {{-- <a data-file="{{ $recording->recordingfile }}" data-toggle="modal" data-target="#myModal" href="#" title="Play" class="btn btn-primary btn-xs"><i class="fa fa-play"></i></a> --}}
                             {!! Form::open(['route' => 'download.recordings', 'style' => 'display:inline']) !!}
                                 {!! Form::hidden('file', $recording->recordingfile, ['id' => 'file']) !!}
                                 <button type="submit" title="Download" class="btn btn-success btn-xs"><i class="fa fa-download"></i></button>
