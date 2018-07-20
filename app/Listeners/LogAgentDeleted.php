@@ -55,8 +55,8 @@ class LogAgentDeleted
                 'port' => $ast_settings->ManagerPort,
                 'username' => $ast_settings->ManagerUsername,
                 'secret' => $ast_settings->ManagerPassword,
-                'connect_timeout' => 20,
-                'read_timeout' => 20
+                'connect_timeout' => 100,
+                'read_timeout' => 100
             ];
             $client = new ClientImpl($options);
             $client->open();
