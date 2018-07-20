@@ -20,6 +20,7 @@ class CreateLoginsTable extends Migration {
 			$table->string('Secret', 20);
 			$table->char('SystemType', 2)->default("ob");
 			$table->char('SystemRights', 1)->default("A");
+			$table->string('Queue');
 		});
 	}
 

@@ -51,8 +51,10 @@
                                         <li class="{{ active('dashboard') }}"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                         <li class="{{ active('users') }}"><a href="{{ route('users') }}">Users</a></li>
                                         <li class="{{ active('agents') }}"><a href="{{ route('agents') }}">Agents</a></li>
+                                        <li class="{{ active('recordings') }}"><a href="{{ route('recordings') }}">Recodings</a></li>
+                                        <li class="{{ active('workcodes') }}"><a href="{{ route('workcodes') }}">Workcodes</a></li>
                                         <li class="{{ active('cdr_report') }}"><a href="{{ route('cdr_report') }}">Call Detail Records</a></li>
-                                        {{-- <li class="{{ active('cdr_report_new') }}"><a href="{{ route('cdr_report_new') }}">Call Detail Records #2</a></li> --}}
+                                        <li class="{{ active('cdr_report_new') }}"><a href="{{ route('cdr_report_new') }}">Call Detail Records #2</a></li>
                                         <li class="{{ active('ready_report') }}"><a href="{{ route('ready_report') }}">Ready/Not Ready Report</a></li>
                                         <li class="{{ active('consolidated_1_report') }}"><a href="{{ route('consolidated_1_report') }}">Consolidated Report #1</a></li>
                                         <li class="{{ active('consolidated_2_report') }}"><a href="{{ route('consolidated_2_report') }}">Consolidated Report #2</a></li>
@@ -98,11 +100,20 @@
                 <div class="col-lg-10">
                     <div class="row">
                         <div class="container-fluid content">
+                            @if (isset($errors) && $errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             @yield('content')
                         </div>
                     </div>
                     <footer>
-                        <p class="text-center">Made with <i class="fa fa-heart" style="color:red;"></i> by <strong>Abdullah Basit</strong></p>
+                        <p class="text-center">Made with <i class="fa fa-heart" style="color:red;"></i> by <strong>IPT Guys :)</strong></p>
                     </footer>
                 </div>
             </div>

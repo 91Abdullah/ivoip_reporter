@@ -16,6 +16,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+        abort(500);
     	return view('dashboard');
     }
 
@@ -28,8 +29,8 @@ class DashboardController extends Controller
 			'port' => $settings->ManagerPort,
 			'username' => $settings->ManagerUsername,
 			'secret' => $settings->ManagerPassword,
-			'connect_timeout' => 10,
-			'read_timeout' => 10
+			'connect_timeout' => 20,
+			'read_timeout' => 20
 		];
     	$client = new ClientImpl($options);
     	$client->open();

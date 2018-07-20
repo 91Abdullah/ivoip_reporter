@@ -36,7 +36,7 @@
             </div>
             <div class="form-group {{ $errors->has('SystemType') ? 'has-error' : '' }}">
                 {!! Form::label('SystemType', 'System Type', ['class' => 'control-label']) !!}
-                {!! Form::select('SystemType', ['ob' => 'Inbound/Outbound'], null, ['class' => 'form-control']) !!}
+                {!! Form::select('SystemType', ['io' => 'Inbound/Outbound', 'ib' => 'Inbound Only', 'ob' => 'Outbound Only'], null, ['class' => 'form-control']) !!}
                 @if ($errors->has('SystemType'))
                     <span class="help-block">{{ $errors->first('SystemType') }}</span>
                 @endif

@@ -36,7 +36,7 @@
             </div>
             <div class="form-group {{ $errors->has('SystemType') ? 'has-error' : '' }}">
                 {!! Form::label('SystemType', 'System Type', ['class' => 'control-label']) !!}
-                {!! Form::select('SystemType', ['ob' => 'Inbound/Outbound'], 'ob', ['class' => 'form-control']) !!}
+                {!! Form::select('SystemType', ['io' => 'Inbound/Outbound', 'ib' => 'Inbound Only', 'ob' => 'Outbound Only'], 'ob', ['class' => 'form-control']) !!}
                 @if ($errors->has('SystemType'))
                     <span class="help-block">{{ $errors->first('SystemType') }}</span>
                 @endif
@@ -46,6 +46,14 @@
                 {!! Form::select('SystemRights', ['A' => 'Agent', 'S' => 'Supervisor'], 'A', ['class' => 'form-control']) !!}
                 @if ($errors->has('SystemRights'))
                     <span class="help-block">{{ $errors->first('SystemRights') }}</span>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('SystemRights') ? 'has-error' : '' }}">
+                {!! Form::label('Queue', 'Queue', ['class' => 'control-label']) !!}
+                {!! Form::text('Queue', null, ['class' => 'form-control']) !!}
+                <span class="help-block">Enter "OUT" if agent is outbound.</span>
+                @if ($errors->has('Queue'))
+                    <span class="help-block">{{ $errors->first('Queue') }}</span>
                 @endif
             </div>
             <br>

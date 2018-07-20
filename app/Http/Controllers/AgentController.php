@@ -24,7 +24,8 @@ class AgentController extends Controller
     			'Extension' => 'required|numeric',
     			'Secret' => 'required',
     			'SystemType' => 'required',
-    			'SystemRights' => 'required'
+    			'SystemRights' => 'required',
+                'Queue' => 'required'
     		]);
 
     		$agent = Agent::create($request->all());

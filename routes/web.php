@@ -26,6 +26,14 @@ Route::prefix('dashboard')->group(function() {
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::prefix('recordings')->group(function() {
+        Route::get('/', 'RecordingController@index')->name('recordings');
+        Route::post('/get', 'RecordingController@getRecordings')->name('get.recordings');
+        Route::post('/download', 'RecordingController@downloadRecordings')->name('download.recordings');
+        Route::get('/download', 'RecordingController@downloadRecordings')->name('download.recordings');
+        Route::get('/stream?file={file}', 'RecordingController@streamRecordings')->name('stream.recordings');
+    });
+
     Route::prefix('agents')->group(function() {
         Route::get('/', 'AgentController@index')->name('agents');
         Route::group(['middleware' => ['check_admin']], function() {
@@ -34,6 +42,17 @@ Route::group(['middleware' => ['auth']], function () {
             Route::delete('/delete/{agent}', 'AgentController@delete')->name('delete.agent');
             Route::get('/update/{agent}', 'AgentController@update')->name('show.update');
             Route::patch('/update/{agent}', 'AgentController@update')->name('update.agent');
+        });
+    });
+
+    Route::prefix('workcodes')->group(function() {
+        Route::get('/', 'WorkcodeController@index')->name('workcodes');
+        Route::group(['middleware' => ['check_admin']], function() {
+            Route::get('/create', 'WorkcodeController@create')->name('create.workcodes');
+            Route::post('/create', 'WorkcodeController@create')->name('post.workcodes');
+            Route::delete('/delete/{workcode}', 'WorkcodeController@delete')->name('delete.workcodes');
+            Route::get('/update/{workcode}', 'WorkcodeController@update')->name('edit.workcodes');
+            Route::patch('/update/{workcode}', 'WorkcodeController@update')->name('update.workcodes');
         });
     });
 

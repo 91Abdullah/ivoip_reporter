@@ -10,5 +10,5 @@ class Agent extends Model
     public $primaryKey = 'ID';
     public $timestamps = false;
 
-    protected $fillable = ['Name', 'Extension', 'Secret', 'SystemType', 'SystemRights'];
+    protected $fillable = ['Name', 'Extension', 'Secret', 'SystemType', 'SystemRights', 'Queue'];
 }

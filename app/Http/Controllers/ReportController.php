@@ -58,7 +58,7 @@ class ReportController extends Controller
                     $reports = ReadyNotReady::where('State', ucfirst($request->type))->whereBetween('datetime', [$range_from, $range_to])->latest('datetime')->get();
                     break;
                 case 'not_ready':
-                    $reports = ReadyNotReady::where('State', ucfirst($request->type))->whereBetween('datetime', [$range_from, $range_to])->latest('datetime')->get();
+                    $reports = ReadyNotReady::where('State', 'NotReady')->whereBetween('datetime', [$range_from, $range_to])->latest('datetime')->get();
                     break;
                 default:
                     abort(404);
