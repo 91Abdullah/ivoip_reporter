@@ -36,7 +36,17 @@
                         <td>{{ $agent->Name }}</td>
                         <td>{{ $agent->Extension }}</td>                       
                         <td>{{ $agent->Secret }}</td>                       
-                        <td>{{ $agent->SystemType == 'io' ? 'Inbound/Outbound' : $agent->SystemType == 'ib' ? 'Inbound Only' : $agent->SystemType == 'ob' ? 'Outbound Only' : 'Unknown' }}</td>                       
+                        <td>
+                            @if($agent->SystemType == "ib")
+                                {{ "Inbound Only" }}
+                            @elseif($agent->SystemType == "ob")
+                                {{ "Outbound Only" }}
+                            @elseif($agent->SystemType == "io")
+                                {{ "Inbound/Outbound" }}
+                            @else
+                                {{ "Unknown" }}
+                            @endif
+                        </td>                       
                         <td>{{ $agent->SystemRights == 'S' ? 'Supervisor' : 'Agent' }}</td>
                         <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['delete.agent', $agent->ID], 'class' => 'form-inline']) !!}
