@@ -13,7 +13,7 @@ class AsteriskTableSeeder extends Seeder
     {
         DB::table('AsteriskTable')->insert([
         	'ProxyIP' => '127.0.0.1',
-        	'Post' => 5060,
+        	'Port' => 5060,
         	'ManagerUsername' => 'ivoip-admin',
         	'ManagerPassword' => 'Root12',
         	'ManagerPort' => 5038,
