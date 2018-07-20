@@ -26,7 +26,7 @@
                         <th>Secret</th>
                         <th>System Type</th>
                         <th>System Rights</th>
-                        <th>Actions</th>
+                        {{-- <th>Actions</th> --}}
                     </tr>
                 </thead>
                     <tbody>
@@ -48,12 +48,12 @@
                             @endif
                         </td>                       
                         <td>{{ $agent->SystemRights == 'S' ? 'Supervisor' : 'Agent' }}</td>
-                        <td>
+                        {{-- <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['delete.agent', $agent->ID], 'class' => 'form-inline']) !!}
                             <button type="submit" title="Delete" class="btn btn-danger btn-xs"><i class="fa fa-close"></i></button>
                             {!! Form::close() !!}
                             <a href="{{ route('show.update', ['agent' => $agent->ID]) }}" title="Edit" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                        </td>                      
+                        </td>                       --}}
                     </tr>
                     @empty
                     <tr>
