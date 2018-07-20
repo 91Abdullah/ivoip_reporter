@@ -260,7 +260,7 @@
                                         <div class="col-lg-3 col-xs-6 dash-box">
                                             <div class="row">
                                                 <div class="col-lg-4 col-xs-6 img-box">
-                                                   <img src="https://png.icons8.com/color/64/000000/waiting-room.png") }}">
+                                                   <img src="{{ asset("storage/waiting-room.png") }}">
                                                 </div>
                                                 <div class="col-lg-8 col-xs-6 content-box">
                                                     <div class="row">
