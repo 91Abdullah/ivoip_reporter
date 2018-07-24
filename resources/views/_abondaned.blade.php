@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ Carbon\Carbon::parse($report->time)->toDayDateTimeString() }}</td>
                         <td>{{ $report->queuename }}</td>
-                        <td>{{ $report->cdr->src }}</td>                       
+                        <td>{{ $report->cdr == null ? "NIL" : $report->cdr->src }}</td>                      
                         <td>{{ $report->data1 }}</td>                       
                         <td>{{ $report->data2 }}</td>                       
                         <td>{{ $report->data3 }}</td>                       

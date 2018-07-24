@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('dashboard')->group(function() {
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::get('/data', 'DashboardController@getData')->name('dashboard.data');
+    Route::get('/v2', 'DashboardController@indexv2')->name('dashboardv2');
 });
 
 Route::group(['middleware' => ['auth']], function () {
